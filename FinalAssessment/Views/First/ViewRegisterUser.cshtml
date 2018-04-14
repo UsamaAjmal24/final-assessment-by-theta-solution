@@ -1,0 +1,61 @@
+﻿@model IEnumerable<FinalAssessment.Models.Users>
+
+<form action="/First/ViewRegisterUser" method="post">
+    <input type="text" id="SearchParameter" name="SearchParameter" />
+    <input type="submit" value="Search" />
+</form>
+
+<h2>List Of All Students <span class="badge">@Model.Count()</span></h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    <a href="/First/RegisterUserDetail?Id=@item.Id" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Detail</a>
+                    <a href="/First/DeleteRegisterUser?Id=@item.Id" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

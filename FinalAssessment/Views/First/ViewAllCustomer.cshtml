@@ -1,0 +1,89 @@
+﻿@model IEnumerable<FinalAssessment.Models.Customers>
+
+@{
+    ViewData["Title"] = "ShowAllCustomer";
+}
+
+<h2>ShowAllCustomer</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifyDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifyBy)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifyDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifyBy)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                <a href="/First/CustomerDetail?Id=@item.Id" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Detail</a>
+                <a href="/First/DeleteCustomer?Id=@item.Id" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

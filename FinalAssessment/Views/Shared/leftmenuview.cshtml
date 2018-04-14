@@ -1,0 +1,56 @@
+﻿
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a asp-action="RegisterUser" asp-controller="First"><i class="glyphicon glyphicon-registration-mark"></i> Register</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-arrow-down"></i> Categories and Items<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/first/ViewAllCategory">Categories</a>
+                                </li>
+                                <li>
+                                    <a href="/First/ViewAllItems">Items</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+         
+                        <li>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/first/AddNewItem">Add Item</a>
+                                </li>
+                                <li>
+                                    <a href="/First/AddNewCategory">Add Category</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        
+                        <li>
+                            <a asp-action="Logout" asp-controller="First"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+       
+
+        

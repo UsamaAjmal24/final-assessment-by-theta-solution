@@ -1,0 +1,77 @@
+﻿@model IEnumerable<FinalAssessment.Models.Category>
+
+@{
+    ViewData["Title"] = "ViewAllCategory";
+}
+
+<h2>ViewAllCategory</h2>
+
+<p>
+    <a asp-action="AddNewCategory" asp-controller="First">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifyDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifyBy)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifyDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifyBy)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                <a href="/First/CategoryDetail?Id=@item.Id" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Detail</a>
+                <a href="/First/DeleteCategory?Id=@item.Id" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
