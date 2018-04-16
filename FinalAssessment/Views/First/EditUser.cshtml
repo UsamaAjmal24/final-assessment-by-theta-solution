@@ -1,0 +1,47 @@
+﻿@model FinalAssessment.Models.Users
+
+@{
+    ViewData["Title"] = "EditUser";
+}
+
+<h2>EditUser</h2>
+
+<h4>Users</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditUser">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(F=>F.Id)
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Role" class="control-label"></label>
+                <input asp-for="Role" class="form-control" />
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit"  value="Save" class="btn btn-success" asp-action="EditUser" asp-controller="First" />
+                @*<a href="/First/RegisterUserDetail?ID=@Users" class="btn btn-success"><span class="glyphicon glyphicon-save">save</span></a>*@
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

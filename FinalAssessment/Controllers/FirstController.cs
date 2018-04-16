@@ -35,8 +35,8 @@ namespace FinalAssessment.Controllers
                 MyDBContext.SaveChanges();
                 ViewBag.Message = "Registration Successful!";
                 string SMTPServer = "smtp.gmail.com";
-                string SMTPUsernmae = "";
-                string SMTPPassword = "fBd6LHc3zX2t";
+                string SMTPUsernmae = "u.chohan24.ua@gmail.com";
+                string SMTPPassword = "chohanthegreat1996";
                 int Port = 587;
 
                 MailMessage oMail = new MailMessage
@@ -113,6 +113,24 @@ namespace FinalAssessment.Controllers
 
             return View(ResultUser);
         }       //users detail view
+        [HttpGet]
+        public IActionResult EditUser(int Id)
+        {
+            Users EUser = MyDBContext.Users.Where(x => x.Id == Id).SingleOrDefault();
+            return View(EUser);
+        }
+        [HttpPost]
+        public IActionResult EditUser(Users U)
+        {
+            Users EUser = MyDBContext.Users.Where(x => x.Id == U.Id).SingleOrDefault();
+            if(EUser != null)
+            {
+                MyDBContext.Entry(EUser).CurrentValues.SetValues(U);
+                MyDBContext.SaveChanges();
+                return RedirectToAction("ViewRegisterUser");
+            }
+            return View(U);
+        }
         [HttpGet]
         public IActionResult Login()
         {
@@ -483,5 +501,23 @@ namespace FinalAssessment.Controllers
 
             return RedirectToAction(nameof(FirstController.Login));
         }       //log out session
+
+
+        public int AllItemsCount()
+        {
+            int ItemResult = 0;
+
+            ItemResult =  MyDBContext.Items.ToList().Count();
+
+            return ItemResult;
+        }
+        public int AllCategoriesCount()
+        {
+            int CategoryResult = 0;
+            CategoryResult = MyDBContext.Category.ToList().Count();
+            return CategoryResult;
+        }
+        
+
     }
 }

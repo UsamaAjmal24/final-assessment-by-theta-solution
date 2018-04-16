@@ -5,7 +5,7 @@
     <input type="submit" value="Search" />
 </form>
 
-<h2>List Of All Students <span class="badge">@Model.Count()</span></h2>
+<h2>List Of All Users <span class="badge">@Model.Count()</span></h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -51,7 +51,7 @@
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    <a href="/First/EditUser?Id=@item.Id" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Edit</a>
                     <a href="/First/RegisterUserDetail?Id=@item.Id" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Detail</a>
                     <a href="/First/DeleteRegisterUser?Id=@item.Id" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> Delete</a>
                 </td>

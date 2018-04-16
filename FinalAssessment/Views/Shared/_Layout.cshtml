@@ -51,10 +51,10 @@
         </div>
     </nav>
     <div class="">
-        <div class="col-md-2">
+        <div class="col-md-3">
             @Html.Partial("~/Views/Shared/leftmenuview.cshtml")
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
             @RenderBody()
         </div>
 
@@ -125,5 +125,6 @@
         add_chatinline();</script>
     <script id="dsq-count-scr" src="//https-localhost-44316-1.disqus.com/count.js" async></script>
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>
