@@ -517,7 +517,15 @@ namespace FinalAssessment.Controllers
             CategoryResult = MyDBContext.Category.ToList().Count();
             return CategoryResult;
         }
-        
+        public int CustomerCount()
+        {
+            int CustomerResult = 0;
+
+            CustomerResult = MyDBContext.Customers.ToList().Count();
+
+            return CustomerResult;
+        }
+
 
     }
 }
