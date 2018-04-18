@@ -234,6 +234,25 @@ namespace FinalAssessment.Controllers
 
         }       //detail view for items
         [HttpGet]
+        public IActionResult EditItem(int Id)
+        {
+            Items EItem = MyDBContext.Items.Where(x => x.Id == Id).SingleOrDefault();
+            return View(EItem);
+        }
+        [HttpPost]
+        public IActionResult EditItem(Items I)
+        {
+            Items EItem = MyDBContext.Items.Where(x => x.Id == I.Id).SingleOrDefault();
+            if (EItem != null)
+            {
+                MyDBContext.Entry(EItem).CurrentValues.SetValues(I);
+                MyDBContext.SaveChanges();
+                return RedirectToAction("ViewAllItems");
+            }
+            return View(I);
+        }
+
+        [HttpGet]
         public IActionResult AddNewCategory()
         {
             bool IsAuthenticateUser = Authenticate();
@@ -280,22 +299,40 @@ namespace FinalAssessment.Controllers
             return RedirectToAction("Login", "First");
             
         }           //list view of category
-        public IActionResult CategoryDetail(Category C)
-        {
-            Category ResultCategory = MyDBContext.Category.Where(abc => abc.Id == C.Id).FirstOrDefault<Category>();
+        //public IActionResult CategoryDetail(Category C)
+        //{
+        //    Category ResultCategory = MyDBContext.Category.Where(abc => abc.Id == C.Id).FirstOrDefault<Category>();
 
-            ViewBag.Title = ResultCategory.Id + "-" + ResultCategory.CategoryName;
-            ViewBag.MetaDescription = "Detail page of Registered User with categoryname " + ResultCategory.CategoryName + " and ID " + ResultCategory.Id;
+        //    ViewBag.Title = ResultCategory.Id + "-" + ResultCategory.CategoryName;
+        //    ViewBag.MetaDescription = "Detail page of Registered User with categoryname " + ResultCategory.CategoryName + " and ID " + ResultCategory.Id;
 
 
-            return View(ResultCategory);
-        }       //detail view category
+        //    return View(ResultCategory);
+        //}       //detail view category
         public IActionResult DeleteCategory(Category C)
         {
             MyDBContext.Category.Remove(C);
             MyDBContext.SaveChanges();
             return RedirectToAction("ViewAllCategory");
         }    //delete category
+        public IActionResult EditCategory(int Id)
+        {
+            Category ECategory = MyDBContext.Category.Where(x => x.Id == Id).SingleOrDefault();
+            return View(ECategory);
+        }
+        [HttpPost]
+        public IActionResult EditCategory(Category C)
+        {
+            Category ECategory = MyDBContext.Category.Where(x => x.Id == C.Id).SingleOrDefault();
+            if (ECategory != null)
+            {
+                MyDBContext.Entry(ECategory).CurrentValues.SetValues(C);
+                MyDBContext.SaveChanges();
+                return RedirectToAction("ViewAllCategory");
+            }
+            return View(C);
+        }
+
         [HttpPost]
         public IActionResult AddNewCostumer(Customers N)
         {
@@ -525,7 +562,19 @@ namespace FinalAssessment.Controllers
 
             return CustomerResult;
         }
+        public int UserCount()
+        {
+            int UserResult = 0;
 
+            UserResult = MyDBContext.Users.ToList().Count();
 
+            return UserResult;
+        }
+
+        //public bool DuplicateCheck()
+        //{
+        //    bool result = false;
+        //    result = MyDBContext.Category.
+        //}
     }
 }

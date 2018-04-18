@@ -17,49 +17,32 @@
     <!-- Custom Fonts -->
     <link href="/lib/sb_admin_2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+   
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        @*<link rel="stylesheet" href="~/css/site.css" />*@
     </environment>
-    <environment exclude="Development">
+    @*<environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+    </environment>*@
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">FinalAssessment</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
-                @await Html.PartialAsync("_LoginPartial")
-            </div>
-        </div>
-    </nav>
-    <div class="">
-        <div class="col-md-3">
+    
+                @*@await Html.PartialAsync("_LoginPartial")*@
+            
+    <div class="row">
+        <div class="col-md-2 col-lg-2">
             @Html.Partial("~/Views/Shared/leftmenuview.cshtml")
         </div>
-        <div class="col-md-9">
+        <div class="col-md-10 col-lg-10">
             @RenderBody()
         </div>
 
         <hr />
-        <footer style="align-content:flex-end">
+        <footer class="footer navbar-fixed-bottom" style="align-content:flex-end">
             <p style="text-align:center">
                 &copy; Final Assessment Task Assigned by Theta Solutions and fully completed by Usama Ajmal
                 (Dec 2017 Batch, ASP.NET CORE MVC6)
@@ -98,32 +81,7 @@
     <script src="/lib/sb_admin_2/vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <div id="disqus_thread"></div>
-    <script>
-
-        /**
-        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-        /*
-        var disqus_config = function () {
-        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-        */
-        (function () { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://https-localhost-44316-1.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-    <script src="/lib/sb_admin_2/dist/js/sb-admin-2.js"></script>
-    <script type="text/javascript">
-        function add_chatinline() { var hccid = 35164778; var nt = document.createElement("script"); nt.async = true; nt.src = "https://mylivechat.com/chatinline.aspx?hccid=" + hccid; var ct = document.getElementsByTagName("script")[0]; ct.parentNode.insertBefore(nt, ct); }
-        add_chatinline();</script>
-    <script id="dsq-count-scr" src="//https-localhost-44316-1.disqus.com/count.js" async></script>
+    
     @RenderSection("Scripts", required: false)
 
 </body>

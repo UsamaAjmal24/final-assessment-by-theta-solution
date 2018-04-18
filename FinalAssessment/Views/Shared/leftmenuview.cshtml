@@ -1,54 +1,54 @@
 ﻿
 
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <div class="col-lg-3"></div>
+            <div class="navbar-inverse" role="navigation">
+                <div class="sidebar-nav navbar-left">
+                    <div class="col-lg-2"></div>
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <!-- /input-group -->
+                        <li>
+                            <a asp-action="Dashboard" asp-controller="First"><i class="glyphicon glyphicon-home"></i> Home</a>
                         </li>
                         <li>
-                            <a asp-action="RegisterUser" asp-controller="First"><i class="glyphicon glyphicon-registration-mark"></i> Register</a>
+                            <a asp-action="RegisterUser" asp-controller="First"><i class="glyphicon glyphicon-user"></i> Sign Up</a>
                         </li>
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-arrow-down"></i> Categories and Items<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/first/ViewAllCategory">Categories</a>
-                                </li>
-                                <li>
-                                    <a href="/First/ViewAllItems">Items</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-         
+                            <a><b>Categories and Items</b></a>
+                            @*<ul class="nav nav-second-level">*@
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/first/AddNewItem">Add Item</a>
-                                </li>
-                                <li>
-                                    <a href="/First/AddNewCategory">Add Category</a>
-                                </li>
-                            </ul>
+                            <a asp-action="ViewAllCategory" asp-controller="First"><i class="glyphicon glyphicon-list"></i> Categories</a>
+
+                            @*<a href="/first/ViewAllCategory" class="glyphicon glyphicon-list"> Categories</a>*@
                         </li>
-                        
-                        
+                        <li>
+                            <a asp-action="ViewAllItems" asp-controller="First"><i class="glyphicon glyphicon-th"></i> Items</a>
+
+                            @*<a href="/First/ViewAllItems" class="glyphicon glyphicon-th"> Items</a>*@
+                        </li>
+                        @* </ul> *@
+                        <!-- /.nav-second-level -->
+                        @*<ul class="nav" id="side-menu">*@
+                        <li>
+                            <a><b>Forms</b></a>
+                            @*<ul class="nav nav-second-level">*@
+                        </li>
+                        <li>
+                            <a asp-action="AddNewItem" asp-controller="First"><i class="glyphicon glyphicon-list-alt"></i> Add new Item</a>
+
+                        </li>
+
+                        <li>
+                            <a asp-action="AddNewCategory" asp-controller="First"><i class="glyphicon glyphicon-list-alt"></i> Add new Category</a>
+
+                            @*<a href="/First/AddNewCategory">Add Category</a>*@
+                        </li>
+                        @*  </ul>*@
+
+                        @*<ul class="nav" id="side-menu">*@
+
                         <li>
                             <a asp-action="Logout" asp-controller="First"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
                         </li>
-                    </ul>
-                </div>
+                        </ul>
+</div>
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
